@@ -1,0 +1,28 @@
+#include <reg51.h>
+
+sbit speaker = P3^0;
+
+void delay(unsigned char i)
+{
+	while(i--);
+}
+
+void main(void)
+{
+ unsigned int i;
+	
+	do{
+		for(i=0;i<=255;i++){
+			speaker =0;
+			delay(0x7f);
+			speaker =1;
+			delay(0x7f);
+		}
+		for(i=0;i<=191;i++){
+			speaker =0;
+			delay(0xaa);
+			speaker =1;
+			delay(0xaa);
+		}
+}while(1);
+	}
