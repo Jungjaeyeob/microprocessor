@@ -1,0 +1,23 @@
+#include <reg51.h>
+
+void delay(unsigned int i)
+{
+while (i--);
+}
+
+
+void main(void)
+{
+unsigned char led=0x7f, i;
+	
+	while(1){
+		for(i=0;i<8;i++)
+		{
+			P1 =led;
+			led = led>>1;
+				delay(0xb100);
+		}
+		
+   led=0x7f;
+	}
+}	
